@@ -1,35 +1,49 @@
 import QtQuick 2.0
 
 Item {
-    id: mainTimerText
+    id: root
 
     property int minutesRemaining: 255
     property int secondsRemaining: 60
 
     Rectangle{
-        id:timeRemaining
-        //color: "#099956" //TODO: remove and change to Item
+        id:timerIcon
+        color: "#a23199" //TODO: remove and change to Item
 
         width: parent.width
-        height: parent.height/2
+        height: parent.height/3
 
         anchors.top: parent.top
 
+
+    }
+
+    Rectangle{
+        id:timeRemaining
+        color: "#099956" //TODO: remove and change to Item
+
+        width: parent.width
+        height: parent.height/3
+
+        anchors.top: timerIcon.bottom
+
         Text{
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
+            anchors.verticalCenter: parent.verticalCenter
+            //anchors.bottom: parent.bottom
 
             text: String(minutesRemaining).padStart(2, '0') + ":" + String(secondsRemaining).padStart(2, '0')
             font.pixelSize: parent.height * 0.65
         }
 
     }
+
     Rectangle{
         id: currentTime
-        //color: "#711156"  //TODO: remove and change to Item
+        color: "#711156"  //TODO: remove and change to Item
 
         width: parent.width
-        height: parent.height/2
+        height: parent.height/3
 
         anchors.bottom: parent.bottom
 

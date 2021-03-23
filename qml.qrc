@@ -2,6 +2,8 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>ProgressCircle.qml</file>
-        <file>TimerText.qml</file>
+        <file>TimerStatus.qml</file>
+        <file>TimerView.qml</file>
+        <file>SettingsView.qml</file>
     </qresource>
 </RCC>
