@@ -8,7 +8,7 @@ Rectangle {
     // timer values
     //property bool timerRunning: false
     property alias timerRunning: mainText.timerRunnung
-    property int timerStartValue_s: 50 //in secondes
+    property int timerStartValue_s: 1800 //in secondes
     property int timerRunningValue_s: 0 // in seconds
 
 

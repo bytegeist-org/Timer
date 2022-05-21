@@ -42,8 +42,8 @@ Item {
                 }
             }
 
-            sourceSize.width: 50
-            sourceSize.height: 50
+            sourceSize.width: 500
+            sourceSize.height: 500
 
 
             fillMode: Image.PreserveAspectFit
