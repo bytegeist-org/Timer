@@ -45,9 +45,4 @@ ApplicationWindow {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-
-
-
-
-
 }

@@ -7,5 +7,14 @@
         <file>TimerView.qml</file>
         <file>Constants.qml</file>
         <file>qmldir</file>
+        <file>images/pause.png</file>
+        <file>images/pause.svg</file>
+        <file>images/play.png</file>
+        <file>images/play.svg</file>
+        <file>images/stop.png</file>
+        <file>images/stop.svg</file>
+        <file>images/pause_nord.svg</file>
+        <file>images/play_nord.svg</file>
+        <file>images/stop_nord.svg</file>
     </qresource>
 </RCC>
