@@ -1,15 +1,17 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 
+
 ApplicationWindow {
     id: root
 
-    property bool alwaysOnTop: false    //not jet functional
+    //property bool alwaysOnTop: false    //not jet functional
 
-    width: 500
-    height: 500
+    width: Constants.default_app_width
+    height: Constants.default_app_height
     visible: true
     title: qsTr("Timer")
+
 
 //    onAlwaysOnTopChanged: { //https://stackoverflow.com/questions/57094057/qml-toggle-window-flags
 //                        if(true)

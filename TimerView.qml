@@ -5,7 +5,7 @@ Item {
 
     property int minutesRemaining: 35
     property int secondsRemaining: 48
-    property int pctRemaining: 15
+    property int pctRemaining: 9
 
     ProgressCircle {
         id: circleIndicator
