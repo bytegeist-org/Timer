@@ -20,29 +20,52 @@ ApplicationWindow {
 //                            root.flags = root.flags & ~Qt.WindowStaysOnTopHint
 //                    }
 
-    SwipeView {
-        id: view
 
-        currentIndex: 0
+
+    TimerView {
+        id: mainTimerView
+        visible: true
         anchors.fill: parent
-
-        TimerView {
-            id: mainTimerView
-        }
-
-        SettingsView {
-            id: secondPage
-        }
     }
 
-    PageIndicator {
-        id: indicator
+    SettingsView{
+        id: settingsView
 
-        count: view.count
-        currentIndex: view.currentIndex
+        visible: true
 
-        anchors.bottom: view.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+        height: parent.height * 0.8
+        width: parent.width * 0.8
+
+        anchors.centerIn: parent
+
     }
+
+
+
+
+//    SwipeView {
+//        id: view
+
+//        currentIndex: 0
+//        anchors.fill: parent
+
+//        TimerView {
+//            id: mainTimerView
+//        }
+
+//        SettingsView {
+//            id: secondPage
+//        }
+//    }
+
+//    PageIndicator {
+//        id: indicator
+
+//        count: view.count
+//        currentIndex: view.currentIndex
+
+//        anchors.bottom: view.bottom
+//        anchors.horizontalCenter: parent.horizontalCenter
+//    }
 
 }
