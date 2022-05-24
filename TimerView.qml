@@ -7,10 +7,17 @@ Rectangle {
 
     // timer values
     //property bool timerRunning: false
-    property alias timerRunning: mainText.timerRunnung
+    property alias timerRunning: mainText.timerRunning
+    property alias openSettings: mainText.openSettings
     property int timerStartValue_s: 1800 //in secondes
     property int timerRunningValue_s: 0 // in seconds
 
+    onOpenSettingsChanged: {
+        if (openSettings === true){
+            settingsView.visible = true;
+            openSettings = false;
+        }
+    }
 
     function getMinutesRemaining(startValue, runningValue){
 

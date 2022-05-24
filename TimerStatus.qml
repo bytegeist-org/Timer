@@ -5,7 +5,8 @@ Item {
 
     property int minutesRemaining: 255
     property int secondsRemaining: 60
-    property bool timerRunnung: false
+    property bool timerRunning: false
+    property bool openSettings: false
 
     Item{
         id:timerIcon
@@ -20,8 +21,8 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                root.timerRunnung = !timerRunnung;
-                console.log("timerRunning set to :" + String(timerRunnung))
+                root.timerRunning = !timerRunning;
+                console.log("timerRunning set to :" + String(timerRunning))
             }
         }
 
@@ -60,9 +61,19 @@ Item {
 
         anchors.top: timerIcon.bottom
 
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                if (timerRunning === false){
+                    openSettings = true;
+                    console.log("open Settings")
+                }
+            }
+        }
+
         Text{
             color: {
-                if (timerRunnung === true &&  minutesRemaining === 0 && secondsRemaining === 0){
+                if (timerRunning === true &&  minutesRemaining === 0 && secondsRemaining === 0){
                     return Constants.textColorWarning
                 } else {
                     return Constants.textColor
