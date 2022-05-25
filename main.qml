@@ -33,8 +33,8 @@ ApplicationWindow {
 
         visible: true
 
-        height: parent.height * 0.8
-        width: parent.width * 0.8
+        height: 400//parent.height * 0.8
+        width: 400//parent.width * 0.8
 
         anchors.centerIn: parent
 

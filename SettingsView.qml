@@ -74,6 +74,7 @@ Item {
                 text: "60:00"
 
                 Layout.fillWidth: true
+                Layout.preferredWidth: parent.width * 0.33
 
                 onClicked: {
                     mainTimerView.timerStartValue_s = 60 * 60
@@ -85,6 +86,7 @@ Item {
                 text: "30:00"
 
                 Layout.fillWidth: true
+                Layout.preferredWidth: parent.width * 0.33
 
                 onClicked: {
                     mainTimerView.timerStartValue_s = 30 * 60
@@ -96,6 +98,7 @@ Item {
                 text: "15:00"
 
                 Layout.fillWidth: true
+                Layout.preferredWidth: parent.width * 0.33
 
                 onClicked: {
                     mainTimerView.timerStartValue_s = 15 * 60
@@ -103,18 +106,42 @@ Item {
                     settingsView.visible = false
                 }
             }
+
             Button {
                 text: "Close"
 
                 Layout.fillWidth: true
+                Layout.row: 3
+                Layout.column: 2
 
                 onClicked: {
                     settingsView.visible = false
                 }
             }
-            Text { text: "in"; font.underline: true }
-            Text { text: "a"; font.pixelSize: 20 }
-            Text { text: "row"; font.strikeout: true }
+            Text{
+                text: "V0.0.1"
+                font.pointSize: 6
+                color: Constants.textColor
+
+                Layout.fillWidth: true
+
+                Layout.row: 4
+                Layout.column: 0
+
+                horizontalAlignment: Text.Alignleft
+            }
+            Text{
+                text: "https://github.com/bytegeist-org/Timer"
+                font.pointSize: 6
+                color: Constants.textColor
+
+                Layout.fillWidth: true
+
+                Layout.row: 4
+                Layout.column: 2
+
+                horizontalAlignment: Text.AlignRight
+            }
         }
 
 
