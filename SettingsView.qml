@@ -119,7 +119,21 @@ Item {
                 }
             }
             Text{
-                text: "V0.0.1"
+
+                property string versionName: getVersionString()
+
+                function getVersionString(){
+                    var today = new Date();
+                    var versionString = "Version: " + String(today.getTime());
+
+                    console.log(versionString);
+
+                    return versionString
+                }
+
+
+                text: versionName
+
                 font.pointSize: 6
                 color: Constants.textColor
 
