@@ -58,7 +58,10 @@ Rectangle {
     }
 
     function checkTimer(timerRunning, runningValue){
-        console.log("checktimer called, timerRunning: " + String(timerRunning) + " RunningValue: " + String(runningValue))
+        console.log("\nchecktimer called")
+        console.log("timerRunning: " + String(timerRunning))
+        console.log("RunningValue: " + String(runningValue))
+        //console.log("timerStartValue_s: " + String(timerStartValue_s))
 
         var returnValue = 0;
 
@@ -80,9 +83,12 @@ Rectangle {
         triggeredOnStart: true
         onTriggered: {
             root.timerRunningValue_s = checkTimer(timerRunning, timerRunningValue_s);
-            console.log("timerRunningValue_s: " + String(root.timerRunningValue_s));
+            console.log("Timer: timerRunningValue_s: " + String(root.timerRunningValue_s));
             if (root.timerRunningValue_s >= root.timerStartValue_s){
                 running = false;
+                console.log("Timer: running = false");
+
+
             }
         }
     }
@@ -98,7 +104,7 @@ Rectangle {
 
         property int timeRemainingPct: parent.pctRemaining
 
-        onTimeRemainingPctChanged: console.log("value changed!");
+        onTimeRemainingPctChanged: console.log("value changed! - ProgressCircle updateed");
 
         anchors.centerIn: parent
 
@@ -130,10 +136,14 @@ Rectangle {
     }
 
     TimerStatus{
+        //icon and text within circle
         id: mainText
 
         minutesRemaining: parent.minutesRemaining
         secondsRemaining: parent.secondsRemaining
+        timerRunning: parent.timerRunning
+
+        onTimerRunningChanged: countdownTimer.restart()
 
         anchors.centerIn: parent
 

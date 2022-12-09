@@ -1,4 +1,5 @@
 import QtQuick 2.0
+//import QtGraphicalEffects 1.12
 
 Item {
     id: root
@@ -23,11 +24,13 @@ Item {
             onClicked: {
                 root.timerRunning = !timerRunning;
                 console.log("timerRunning set to :" + String(timerRunning))
+
             }
         }
 
         Image{
             id: iconImage
+            //play pause icon
             width: parent.width - 10
             height: parent.height - 10
 
@@ -50,6 +53,20 @@ Item {
             fillMode: Image.PreserveAspectFit
         }
 
+//        ColorOverlay{
+//                anchors.fill: iconImage
+//                source:iconImage
+//                color: {
+//                    if (timerRunning === true &&  minutesRemaining === 0 && secondsRemaining === 0){
+//                        return Constants.textColorWarning
+//                    } else {
+//                        return Constants.textColor
+//                    }
+//                }
+//                //transform:rotation
+//                //antialiasing: true
+//            }
+
     }
 
     Item{
@@ -64,8 +81,9 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                if (timerRunning === false){
+                if (timerRunning === false || (timerRunning === true &&  minutesRemaining === 0 && secondsRemaining === 0)){
                     openSettings = true;
+                    timerRunning = false;
                     console.log("open Settings")
                 }
             }
@@ -108,7 +126,13 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
 
             text: getCurrentTime()
-            color: Constants.textColor
+            color: {
+                if (timerRunning === true &&  minutesRemaining === 0 && secondsRemaining === 0){
+                    return Constants.textColorWarning
+                } else {
+                    return Constants.textColor
+                }
+            }
 
             font.pixelSize: parent.height * 0.35
 

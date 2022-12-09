@@ -13,7 +13,7 @@ ApplicationWindow {
     title: qsTr("Timer")
 
 
-//    onAlwaysOnTopChanged: { //https://stackoverflow.com/questions/57094057/qml-toggle-window-flags
+//    onAlwaysOnTopChanged: { // TODO: https://stackoverflow.com/questions/57094057/qml-toggle-window-flags
 //                        if(true)
 //                            root.flags = root.flags | Qt.WindowStaysOnTopHint
 //                        else
@@ -39,33 +39,4 @@ ApplicationWindow {
         anchors.centerIn: parent
 
     }
-
-
-
-
-//    SwipeView {
-//        id: view
-
-//        currentIndex: 0
-//        anchors.fill: parent
-
-//        TimerView {
-//            id: mainTimerView
-//        }
-
-//        SettingsView {
-//            id: secondPage
-//        }
-//    }
-
-//    PageIndicator {
-//        id: indicator
-
-//        count: view.count
-//        currentIndex: view.currentIndex
-
-//        anchors.bottom: view.bottom
-//        anchors.horizontalCenter: parent.horizontalCenter
-//    }
-
 }
