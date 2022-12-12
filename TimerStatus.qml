@@ -11,20 +11,16 @@ Item {
 
     Item{
         id:timerIcon
-
         //color: "steelblue" //TODO: remove and change to Item
-
         width: parent.width
         height: parent.height/3
-
         anchors.top: parent.top
 
         MouseArea {
             anchors.fill: parent
             onClicked: {
                 root.timerRunning = !timerRunning;
-                console.log("timerRunning set to :" + String(timerRunning))
-
+                //console.log("timerRunning set to :" + String(timerRunning))
             }
         }
 
@@ -33,7 +29,6 @@ Item {
             //play pause icon
             width: parent.width - 10
             height: parent.height - 10
-
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
 
@@ -48,8 +43,6 @@ Item {
 
             sourceSize.width: 500
             sourceSize.height: 500
-
-
             fillMode: Image.PreserveAspectFit
         }
 
@@ -66,16 +59,13 @@ Item {
 //                //transform:rotation
 //                //antialiasing: true
 //            }
-
     }
 
     Item{
         id:timeRemaining
         //color: "#099956" //TODO: remove and change to Item
-
         width: parent.width
         height: parent.height/3
-
         anchors.top: timerIcon.bottom
 
         MouseArea {
@@ -84,7 +74,7 @@ Item {
                 if (timerRunning === false || (timerRunning === true &&  minutesRemaining === 0 && secondsRemaining === 0)){
                     openSettings = true;
                     timerRunning = false;
-                    console.log("open Settings")
+                    //console.log("open Settings")
                 }
             }
         }
@@ -97,26 +87,20 @@ Item {
                     return Constants.textColor
                 }
             }
-
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             //anchors.bottom: parent.bottom
-
             text: String(minutesRemaining).padStart(2, '0') + ":" + String(secondsRemaining).padStart(2, '0')
             font.bold: true
             font.pixelSize: parent.height * 0.75
-
         }
-
     }
 
     Item{
         id: currentTime
         //color: "#711156"  //TODO: remove and change to Item
-
         width: parent.width
         height: parent.height/3
-
         anchors.bottom: parent.bottom
 
         Text{
@@ -124,7 +108,6 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             //anchors.top: parent.top
             anchors.verticalCenter: parent.verticalCenter
-
             text: getCurrentTime()
             color: {
                 if (timerRunning === true &&  minutesRemaining === 0 && secondsRemaining === 0){
@@ -133,7 +116,6 @@ Item {
                     return Constants.textColor
                 }
             }
-
             font.pixelSize: parent.height * 0.35
 
             function getCurrentTime(){
@@ -143,6 +125,7 @@ Item {
                 currentTimeText.text = "current time: " + String(today.getUTCHours()+ UTCcorrection).padStart(2, '0') + ":" + String(today.getUTCMinutes()).padStart(2, '0');
             }
         }
+
         Timer {
             id: textTimer
             interval: 1000
@@ -152,5 +135,4 @@ Item {
             onTriggered: currentTimeText.getCurrentTime()
         }
     }
-
 }

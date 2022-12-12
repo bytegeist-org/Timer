@@ -12,15 +12,12 @@ ApplicationWindow {
     visible: true
     title: qsTr("Timer")
 
-
 //    onAlwaysOnTopChanged: { // TODO: https://stackoverflow.com/questions/57094057/qml-toggle-window-flags
 //                        if(true)
 //                            root.flags = root.flags | Qt.WindowStaysOnTopHint
 //                        else
 //                            root.flags = root.flags & ~Qt.WindowStaysOnTopHint
 //                    }
-
-
 
     TimerView {
         id: mainTimerView
@@ -30,13 +27,11 @@ ApplicationWindow {
 
     SettingsView{
         id: settingsView
-
         visible: true
 
         height: 400//parent.height * 0.8
         width: 400//parent.width * 0.8
 
         anchors.centerIn: parent
-
     }
 }

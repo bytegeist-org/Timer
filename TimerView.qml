@@ -58,9 +58,9 @@ Rectangle {
     }
 
     function checkTimer(timerRunning, runningValue){
-        console.log("\nchecktimer called")
-        console.log("timerRunning: " + String(timerRunning))
-        console.log("RunningValue: " + String(runningValue))
+        //console.log("\nchecktimer called")
+        //console.log("timerRunning: " + String(timerRunning))
+        //console.log("RunningValue: " + String(runningValue))
         //console.log("timerStartValue_s: " + String(timerStartValue_s))
 
         var returnValue = 0;
@@ -83,10 +83,10 @@ Rectangle {
         triggeredOnStart: true
         onTriggered: {
             root.timerRunningValue_s = checkTimer(timerRunning, timerRunningValue_s);
-            console.log("Timer: timerRunningValue_s: " + String(root.timerRunningValue_s));
+            //console.log("Timer: timerRunningValue_s: " + String(root.timerRunningValue_s));
             if (root.timerRunningValue_s >= root.timerStartValue_s){
                 running = false;
-                console.log("Timer: running = false");
+                //console.log("Timer: running = false");
 
 
             }
@@ -98,22 +98,15 @@ Rectangle {
     property int secondsRemaining: getSecondsRemaining(timerStartValue_s, timerRunningValue_s)
     property int pctRemaining: getPercentRemaining(timerStartValue_s, timerRunningValue_s)
 
-
     ProgressCircle {
         id: circleIndicator
-
         property int timeRemainingPct: parent.pctRemaining
-
         onTimeRemainingPctChanged: console.log("value changed! - ProgressCircle updateed");
-
         anchors.centerIn: parent
-
         size: (parent.height >= parent.width) ? parent.width * 0.9 : parent.height * 0.9
         lineWidth: this.size * 0.2
-
         colorCircle: getColor(timeRemainingPct)
         colorBackground: Constants.ringColorBackground
-
         showBackground: true
         arcBegin: (360/100) * (100-timeRemainingPct);  // value changes from 0 = 100% remaining to 360 = 0% remaining
         arcEnd: 360 //value is constant
@@ -138,15 +131,11 @@ Rectangle {
     TimerStatus{
         //icon and text within circle
         id: mainText
-
         minutesRemaining: parent.minutesRemaining
         secondsRemaining: parent.secondsRemaining
         timerRunning: parent.timerRunning
-
         onTimerRunningChanged: countdownTimer.restart()
-
         anchors.centerIn: parent
-
         width: circleIndicator.size * 0.4
         height: circleIndicator.size * 0.4
 
